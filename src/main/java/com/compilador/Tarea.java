@@ -22,6 +22,7 @@ public class Tarea {
     public int duracion = -1;         // duracion en dias (obligatoria)
     public double costo = 0;          // costo monetario (opcional)
     public String responsable;        // responsable (opcional)
+    public String prioridad;          // alta | media | baja (opcional)
     public List<String> dependencias = new ArrayList<>();  // ids de los que depende
 
     public int lineaDeclaracion;      // donde se declaro (para reportar errores)

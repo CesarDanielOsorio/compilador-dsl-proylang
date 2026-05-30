@@ -26,8 +26,9 @@ proyecto "Demo Semantico" {
     }
 
     tarea x {
-        duracion = 0;            // ERROR: duracion debe ser > 0
-        depende  = x;            // ERROR: auto-dependencia
+        duracion  = 0;           // ERROR: duracion debe ser > 0
+        prioridad = altisima;    // ERROR: prioridad no valida (alta/media/baja)
+        depende   = x;           // ERROR: auto-dependencia
     }
 
     tarea c {

@@ -40,6 +40,7 @@ atributo
     | KW_DURACION    ASIGNA expr     PYC   # atrDuracion
     | KW_COSTO       ASIGNA expr     PYC   # atrCosto
     | KW_RESPONSABLE ASIGNA STRING   PYC   # atrResponsable
+    | KW_PRIORIDAD   ASIGNA ID       PYC   # atrPrioridad
     | KW_DEPENDE     ASIGNA listaIds PYC   # atrDepende
     ;
 
@@ -71,6 +72,7 @@ KW_NOMBRE      : 'nombre' ;
 KW_DURACION    : 'duracion' ;
 KW_COSTO       : 'costo' ;
 KW_RESPONSABLE : 'responsable' ;
+KW_PRIORIDAD   : 'prioridad' ;
 KW_DEPENDE     : 'depende' ;
 
 // --- Simbolos ---

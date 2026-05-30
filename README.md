@@ -67,7 +67,7 @@ Las salidas (JSON, 3 direcciones, plan) se generan en la carpeta `salida\`.
 | `ejemplos\valido2.proy` | Proyecto válido simple (evento) |
 | `ejemplos\error_lexico.proy` | Caracteres inválidos (`@`, `#`) |
 | `ejemplos\error_sintactico.proy` | Falta `;` y falta `}` |
-| `ejemplos\error_semantico.proy` | 7 errores semánticos distintos |
+| `ejemplos\error_semantico.proy` | 8 errores semánticos distintos |
 
 ---
 

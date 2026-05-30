@@ -54,6 +54,7 @@ proyecto "Nombre del proyecto" {
 | `duracion` | Duración en días (entero positivo) — **obligatorio** |
 | `costo` | Costo monetario (número ≥ 0) |
 | `responsable` | Persona responsable (texto) |
+| `prioridad` | Prioridad de la tarea: `alta`, `media` o `baja` |
 | `depende` | Lista de tareas predecesoras |
 
 ### Tipos de datos
@@ -94,6 +95,7 @@ atributo   ::= "nombre"      "=" STRING   ";"
              | "duracion"    "=" expr     ";"
              | "costo"       "=" expr     ";"
              | "responsable" "=" STRING   ";"
+             | "prioridad"   "=" ID       ";"
              | "depende"     "=" listaIds ";"
 
 listaIds   ::= ID ("," ID)*
@@ -187,6 +189,7 @@ una dependencia apunte a una tarea que realmente existe.
 | 7 | Auto-dependencia | `…no puede depender de sí misma.` |
 | 8 | Dependencia duplicada | `Dependencia duplicada…` |
 | 9 | **Dependencia circular** | `Dependencia circular detectada: c -> d -> c` |
+| 10 | `prioridad` con valor no permitido | `La 'prioridad' debe ser 'alta', 'media' o 'baja'…` |
 
 La detección de **ciclos** (validación 9) usa una búsqueda en profundidad (DFS)
 con coloreo de nodos (blanco/gris/negro): si durante el recorrido se llega a un
@@ -279,6 +282,7 @@ proyecto "App Movil" {
         duracion    = 5;
         costo       = 5 * 800;
         responsable = "Ana Lopez";
+        prioridad   = alta;
     }
     tarea backend {
         duracion = 10;
@@ -307,14 +311,15 @@ proyecto "Demo Semantico" {
 
 ```
 >> FASE 3 - Analisis Semantico
-   7 error(es) semantico(s):
+   8 error(es) semantico(s):
    [Semantico] linea 24:10  ->  La tarea 'a' ya fue declarada antes.
    [Semantico] linea 16:19  ->  La tarea 'a' depende de 'fantasma', que no esta declarada.
    [Semantico] linea 20:8   ->  El 'costo' no puede ser negativo (se obtuvo -100.0).
    [Semantico] linea 29:8   ->  La 'duracion' debe ser mayor que 0 (se obtuvo 0).
-   [Semantico] linea 30:19  ->  La tarea 'x' no puede depender de si misma.
+   [Semantico] linea 30:8   ->  La 'prioridad' debe ser 'alta', 'media' o 'baja' (se obtuvo 'altisima').
+   [Semantico] linea 31:20  ->  La tarea 'x' no puede depender de si misma.
    [Semantico] linea 19:0   ->  La tarea 'b' no tiene el atributo obligatorio 'duracion'.
-   [Semantico] linea 33:0   ->  Dependencia circular detectada: c -> d -> c
+   [Semantico] linea 34:0   ->  Dependencia circular detectada: c -> d -> c
 ```
 
 Los demás ejemplos (`error_lexico.proy`, `error_sintactico.proy`) están en la

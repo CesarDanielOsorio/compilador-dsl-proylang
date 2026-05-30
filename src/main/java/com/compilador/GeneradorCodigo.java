@@ -187,6 +187,7 @@ public class GeneradorCodigo {
             sb.append("      \"id\": \"").append(t.id).append("\",\n");
             sb.append("      \"nombre\": \"").append(escapar(t.nombre == null ? t.id : t.nombre)).append("\",\n");
             sb.append("      \"responsable\": \"").append(escapar(t.responsable == null ? "" : t.responsable)).append("\",\n");
+            sb.append("      \"prioridad\": \"").append(t.prioridad == null ? "media" : t.prioridad).append("\",\n");
             sb.append("      \"duracion\": ").append(t.duracion).append(",\n");
             sb.append("      \"costo\": ").append(formatoNum(t.costo)).append(",\n");
             sb.append("      \"inicioTemprano\": ").append(t.inicioTemprano).append(",\n");

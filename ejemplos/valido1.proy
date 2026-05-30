@@ -9,6 +9,7 @@ proyecto "App Movil" {
         duracion     = 5;
         costo        = 5 * 800;          // 4000
         responsable  = "Ana Lopez";
+        prioridad    = alta;
     }
 
     tarea backend {
@@ -31,6 +32,7 @@ proyecto "App Movil" {
         nombre       = "Pruebas de integracion";
         duracion     = 4;
         costo        = 4 * 700;          // 2800
+        prioridad    = media;
         depende      = backend, frontend;
     }
 

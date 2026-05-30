@@ -106,6 +106,15 @@ public class AnalizadorSemantico {
                 if (!atributosVistos.add("responsable")) duplicado("responsable", linea, col);
                 t.responsable = quitarComillas(((ProyLangParser.AtrResponsableContext) a).STRING().getText());
 
+            } else if (a instanceof ProyLangParser.AtrPrioridadContext) {
+                if (!atributosVistos.add("prioridad")) duplicado("prioridad", linea, col);
+                String valor = ((ProyLangParser.AtrPrioridadContext) a).ID().getText();
+                if (!valor.equals("alta") && !valor.equals("media") && !valor.equals("baja")) {
+                    error(linea, col, "La 'prioridad' debe ser 'alta', 'media' o 'baja' (se obtuvo '" + valor + "').");
+                } else {
+                    t.prioridad = valor;
+                }
+
             } else if (a instanceof ProyLangParser.AtrDuracionContext) {
                 if (!atributosVistos.add("duracion")) duplicado("duracion", linea, col);
                 ProyLangParser.ExprContext e = ((ProyLangParser.AtrDuracionContext) a).expr();
