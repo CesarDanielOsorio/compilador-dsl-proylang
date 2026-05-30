@@ -1,0 +1,29 @@
+// ============================================================
+//  Ejemplo VALIDO 2 - Organizacion de un evento (mas simple)
+// ============================================================
+proyecto "Evento Tecnologico" {
+
+    tarea reservarLocal {
+        nombre   = "Reservar el local";
+        duracion = 2;
+        costo    = 1500;
+    }
+
+    tarea invitados {
+        nombre   = "Confirmar invitados";
+        duracion = 3;
+        depende  = reservarLocal;
+    }
+
+    tarea logistica {
+        nombre   = "Montaje y logistica";
+        duracion = 4;
+        depende  = reservarLocal;
+    }
+
+    tarea evento {
+        nombre   = "Dia del evento";
+        duracion = 1;
+        depende  = invitados, logistica;
+    }
+}

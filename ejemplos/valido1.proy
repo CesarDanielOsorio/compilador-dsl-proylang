@@ -1,0 +1,42 @@
+// ============================================================
+//  Ejemplo VALIDO 1 - Desarrollo de una aplicacion movil
+//  Muestra tareas, costos con expresiones y dependencias.
+// ============================================================
+proyecto "App Movil" {
+
+    tarea diseno {
+        nombre       = "Diseno de la interfaz";
+        duracion     = 5;
+        costo        = 5 * 800;          // 4000
+        responsable  = "Ana Lopez";
+    }
+
+    tarea backend {
+        nombre       = "Desarrollo del backend";
+        duracion     = 10;
+        costo        = 10 * 1000 + 500;  // 10500
+        responsable  = "Carlos Ruiz";
+        depende      = diseno;
+    }
+
+    tarea frontend {
+        nombre       = "Desarrollo del frontend";
+        duracion     = 8;
+        costo        = 8 * 900;          // 7200
+        responsable  = "Marta Diaz";
+        depende      = diseno;
+    }
+
+    tarea pruebas {
+        nombre       = "Pruebas de integracion";
+        duracion     = 4;
+        costo        = 4 * 700;          // 2800
+        depende      = backend, frontend;
+    }
+
+    tarea despliegue {
+        nombre       = "Despliegue a produccion";
+        duracion     = 2;
+        depende      = pruebas;
+    }
+}

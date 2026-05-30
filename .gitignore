@@ -1,0 +1,22 @@
+# ===== Compilados de Java =====
+build/
+*.class
+
+# ===== Salidas generadas por el compilador =====
+salida/
+
+# ===== Archivos generados automaticamente por ANTLR =====
+# (se regeneran al correr build.ps1, por eso no se versionan)
+src/main/java/com/compilador/ProyLangLexer.java
+src/main/java/com/compilador/ProyLangParser.java
+src/main/java/com/compilador/ProyLangBaseListener.java
+src/main/java/com/compilador/ProyLangListener.java
+src/main/java/com/compilador/ProyLangBaseVisitor.java
+src/main/java/com/compilador/ProyLangVisitor.java
+src/main/java/com/compilador/ProyLang*.interp
+src/main/java/com/compilador/ProyLang*.tokens
+
+# ===== Varios =====
+.DS_Store
+Thumbs.db
+*.log

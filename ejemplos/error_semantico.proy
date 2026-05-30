@@ -1,0 +1,42 @@
+// ============================================================
+//  Ejemplo con ERRORES SEMANTICOS (sintaxis correcta, sentido incorrecto)
+//  Contiene varios errores a proposito:
+//    - dependencia hacia una tarea no declarada
+//    - tarea sin 'duracion' (obligatoria)
+//    - duracion no positiva
+//    - costo negativo
+//    - tarea duplicada
+//    - auto-dependencia
+//    - dependencia circular (c -> d -> c)
+// ============================================================
+proyecto "Demo Semantico" {
+
+    tarea a {
+        duracion = 5;
+        depende  = fantasma;     // ERROR: 'fantasma' no existe
+    }
+
+    tarea b {
+        costo    = -100;         // ERROR: costo negativo
+        // ERROR: falta 'duracion'
+    }
+
+    tarea a {                    // ERROR: 'a' duplicada
+        duracion = 2;
+    }
+
+    tarea x {
+        duracion = 0;            // ERROR: duracion debe ser > 0
+        depende  = x;            // ERROR: auto-dependencia
+    }
+
+    tarea c {
+        duracion = 3;
+        depende  = d;
+    }
+
+    tarea d {
+        duracion = 4;
+        depende  = c;            // ERROR: ciclo c -> d -> c
+    }
+}

@@ -1,0 +1,15 @@
+// ============================================================
+//  Ejemplo con ERROR SINTACTICO
+//  Falta el punto y coma ';' y falta una llave de cierre.
+// ============================================================
+proyecto "Demo Sintactico" {
+
+    tarea a {
+        duracion = 5          // <-- falta el ';' al final
+        costo    = 100;
+    }
+
+    tarea b {
+        duracion = 3;
+    // <-- falta la llave '}' que cierra la tarea b
+}

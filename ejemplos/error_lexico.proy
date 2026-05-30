@@ -1,0 +1,15 @@
+// ============================================================
+//  Ejemplo con ERROR LEXICO
+//  El simbolo '@' y '#' no pertenecen al lenguaje ProyLang.
+// ============================================================
+proyecto "Demo Lexico" {
+
+    tarea a {
+        duracion = 5;
+        costo    = 100 @ 2;     // '@' es un caracter invalido
+    }
+
+    tarea b#1 {                 // '#' es un caracter invalido
+        duracion = 3;
+    }
+}
